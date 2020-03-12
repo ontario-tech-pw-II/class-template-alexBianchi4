@@ -74,14 +74,31 @@ t DynamicArray<t>::getEntry(int index)
 
 int main()
 {
-  DynamicArray<char> x;
+  /*
+  DynamicArray<int> x;
+  
+  // Adding entries
+  x.addEntry(1);
+  x.addEntry(3);
+  x.addEntry(5);
+  x.addEntry(9);
+  x.addEntry(2);
+
+  // Output entries
+  cout << "List:" << endl;
+  
+  for (int i = 0; i < x.getSize(); i++)
+    cout << x.getEntry(i) << endl;
+  */
+
+  DynamicArray<string> x;
 
   // Adding entries
-  x.addEntry('a');
-  x.addEntry('b');
-  x.addEntry('c');
-  x.addEntry('d');
-  x.addEntry('e');
+  x.addEntry("Frank");
+  x.addEntry("Wiggum");
+  x.addEntry("Nahasapeemapetilon");
+  x.addEntry("Quimby");
+  x.addEntry("Flanders");
 
   // Output entries
   cout << "List:" << endl;
