@@ -3,43 +3,47 @@
 #include <iostream>
 using namespace std;
 
+template<class t>
 class DynamicArray 
 {
 public:
   DynamicArray();
   ~DynamicArray();
-  void addEntry(int newEntry);
-  int getEntry(int index);
+  void addEntry(t newEntry);
+  t getEntry(int index);
   int getSize();
 
 private:
-  int *dynamicArray;
+  t *dynamicArray;
   int size;
 };
 
-DynamicArray::DynamicArray()
+template<class t>
+DynamicArray<t>::DynamicArray()
 {
   dynamicArray = nullptr;
   size = 0;
 }
 
-
-DynamicArray::~DynamicArray()
+template<class t>
+DynamicArray<t>::~DynamicArray()
 {
   if (dynamicArray != nullptr)
     delete[] dynamicArray;
 }
 
-int DynamicArray::getSize()
+template<class t>
+int DynamicArray<t>::getSize()
 {
   return size;
 }
 
-// Adds an entry to the dynamic array. 
-void DynamicArray::addEntry(int newEntry)
+// Adds an entry to the dynamic array.
+template<class t> 
+void DynamicArray<t>::addEntry(t newEntry)
 {
     // Create a new array, copy the contents of the old array, then delete it
-    int *newArray = new int[size + 1];
+    t *newArray = new t[size + 1];
     for (int i = 0; i < size; i++)
     {
     newArray[i] = dynamicArray[i];
@@ -56,7 +60,8 @@ void DynamicArray::addEntry(int newEntry)
 
 
 // Retrieve the element at a given index
-int DynamicArray::getEntry(int index)
+template<class t>
+t DynamicArray<t>::getEntry(int index)
 {
   if ((index < 0) || (index >= size)){
     cout << "Out of the index !" << endl;
@@ -69,14 +74,14 @@ int DynamicArray::getEntry(int index)
 
 int main()
 {
-  DynamicArray x;
+  DynamicArray<char> x;
 
   // Adding entries
-  x.addEntry(7);
-  x.addEntry(5);
-  x.addEntry(4);
-  x.addEntry(2);
-  x.addEntry(8);
+  x.addEntry('a');
+  x.addEntry('b');
+  x.addEntry('c');
+  x.addEntry('d');
+  x.addEntry('e');
 
   // Output entries
   cout << "List:" << endl;
